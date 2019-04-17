@@ -15,7 +15,7 @@ function makeGETRequest(url) {
         if (Math.random () < .6) {
             xhr.onreadystatechange = function () {
                 if (xhr.readyState === 4) {
-                    xhr.status >= 200 && xhr.status < 300 ? resolve (xhr.responseText) : reject (xhr.statusText, xhr.responseText);
+                    xhr.status >= 200 && xhr.status < 300 ? resolve (xhr.responseText) : reject (xhr.statusText);
                 } 
             };
             xhr.send();
@@ -25,6 +25,11 @@ function makeGETRequest(url) {
             }, 3000);
         } else {
             xhr.open('GET', url+1, true);
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState === 4) {
+                   reject (`Error \n${xhr.statusText}`);
+                } 
+            };
             xhr.send();
         };
     });
@@ -55,7 +60,7 @@ class GoodsList {
             this.goods = JSON.parse(response)
             cb();
         })
-        .catch (reason => console.error (reason))
+        .catch (reason => alert (reason));
     }
     render() {
         let listHtml = '';
