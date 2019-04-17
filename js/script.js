@@ -15,9 +15,9 @@ function makeGETRequest(url) {
         setTimeout (function () {
             if (Math.random () < .6) {
                 xhr.onreadystatechange = function () {
-                if (xhr.readyState === 4) {
-                    xhr.status >= 200 && xhr.status < 300 ? resolve(xhr.responseText) : reject(xhr.statusText, xhr.responseText);
-                } 
+                    if (xhr.readyState === 4) {
+                        xhr.status >= 200 && xhr.status < 300 ? resolve(xhr.responseText) : reject(xhr.statusText, xhr.responseText);
+                    } 
                 };
                 xhr.send();
             } else reject(Math.random () > .5 ? alert('Error \nServer timeout exceeded') : alert('Error \nFile not found'));
