@@ -12,16 +12,23 @@ function makeGETRequest(url) {
     console.log ('Waiting....');
     xhr.open('GET', url, true);
     let promise = new Promise (function (resolve, reject) {
-        setTimeout (function () {
+        
             if (Math.random () < .6) {
                 xhr.onreadystatechange = function () {
                     if (xhr.readyState === 4) {
-                        xhr.status >= 200 && xhr.status < 300 ? resolve(xhr.responseText) : reject(xhr.statusText, xhr.responseText);
+                        xhr.status >= 200 && xhr.status < 300 ? resolve (xhr.responseText) : reject (xhr.statusText, xhr.responseText);
                     } 
                 };
                 xhr.send();
-            } else reject(Math.random () > .5 ? alert('Error \nServer timeout exceeded') : alert('Error \nFile not found'));
-        }, 3000);
+            } else if (Math.random () > .5) {
+                setTimeout ( () => {
+                    reject ('Error \nServer timeout exceeded');
+                }, 3000);
+            } else {
+                xhr.open('GET', url+1, true);
+                xhr.send();
+            };
+        
     });
     return promise;
 }
