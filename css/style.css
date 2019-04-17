@@ -1,0 +1,93 @@
+body {
+   margin: 0;
+   padding: 0;
+   background: white;
+}
+
+.container {
+   max-width: 1200px;
+   margin: 0 auto;
+}
+
+.header {
+   width: 100%;
+   background: url("../img/bg/2.jpg") no-repeat 50% 50% white;
+   min-height: 400px;
+   padding-bottom: 20px;
+   position: relative;
+}
+
+.line {
+   width: 100%;
+   height: 2px;
+   background: linear-gradient(to right, white, red, white);
+   position: absolute;
+   bottom: 0;
+}
+
+.logo {
+   float: left;
+   margin: 20px 0 0 20px;
+   font-size: 36px;
+   color: red;
+   font-style: italic;
+   text-shadow: 2px 2px 3px gray;
+}
+
+.cart-button {
+   width: 150px;
+   height: 50px;
+   border-radius: 2px;
+   font-size: 15px;
+   background: firebrick;
+   border: none;
+   box-shadow: inset 0 -3px darkred;
+   text-transform: uppercase;
+   color: white;
+   font-weight: bold;
+   cursor: pointer;
+   transition: all 0.5s;
+   float: right;
+   margin: 20px 20px 0 0;
+}
+
+.cart-button:hover {
+   background: darkred;
+   box-shadow: inset 0 3px firebrick;
+}
+
+.main {
+   text-align: center;
+}
+
+.goods-list {
+   margin: 20px auto 20px;
+   width: 100%;
+}
+
+.goods-item {
+   width: 200px;
+   height: 330px;
+   display: inline-block;
+   margin: 10px;
+   box-shadow: 0 0 10px 1px gray;
+   background: white;
+   transition: all 0.5s;
+}
+
+.goods-item:hover {
+   box-shadow: 0 0 10px 1px firebrick;
+}
+
+.good-img {
+   width: 150px;
+   height: 200px;
+}
+
+.goods-count {
+   background: gray;
+   color: white;
+   font-size: 30px;
+   font-weight: bold;
+   text-shadow: 2px 2px 3px black;
+}
